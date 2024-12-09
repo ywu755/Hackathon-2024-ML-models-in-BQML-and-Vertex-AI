@@ -1,0 +1,27 @@
+name: 'hackaton_bqml_dbt'
+version: '1.0.0'
+config-version: 2
+
+vars:
+  "dbt_ml:audit_schema": "audit"
+  "dbt_ml:audit_table": "ml_models"
+
+on-run-start:
+  - '{% do adapter.create_schema(api.Relation.create(target.project, "audit")) %}'
+  - "{{ dbt_ml.create_model_audit_table() }}"
+
+models:
+  hackaton_bqml_dbt:
+    ml:
+      enabled: true
+      schema: ml
+      materialized: model
+      post-hook: "{{ dbt_ml.model_audit() }}"
+    +materialized: table
+    +persist_docs:
+      relation: true
+      columns: true
+packages-install-path: "{{  env_var('DBT_PACKAGES_PATH', 'dbt_packages') }}"
+
+# default to use `project_id.hackathon_q1_2024` resource in GBQ
+profile: 'ds_lder_der_profile'
