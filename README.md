@@ -9,7 +9,7 @@ This package was developed with contributions from:
 
 As part of the 2024 Hackaton, we explored BQML so that we can execute ML workflows without moving data from GCP. We implemented a pipeline using a dbt packages [dbt_ml](https://github.com/kristeligt-dagblad/dbt_ml/tree/v0.6.1/), so that we query dataset from GBQ, train models in BQML, track results, metrics and parameters, and visualize our results on a [Panel](https://panel.holoviz.org/) dashboard.
 
-More details can be found in this [document](https://docs.google.com/document/d/1g-WOK1-sBrvwk3XVicP6HWx0Xl2x3zlgnFW2JCZxwys/edit?tab=t.0).
+More details can be found in this [document]([https://docs.google.com/document/d/1g-WOK1-sBrvwk3XVicP6HWx0Xl2x3zlgnFW2JCZxwys/edit?tab=t.0](https://github.com/ywu755/Hackathon-2024-ML-models-in-BQML-and-Vertex-AI/blob/main/reference/Hackthon%20Idea.docx)).
 
 
 ## bqml structure
