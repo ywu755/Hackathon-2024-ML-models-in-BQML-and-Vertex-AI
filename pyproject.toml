@@ -1,0 +1,64 @@
+[tool.poetry_bumpversion.file."hackathon_bqml/__init__.py"]
+
+[tool.poetry]
+name = "hackathon_bqml"
+version = "0.0.1"
+description = """\
+    This package contains files to run hackathon_bqml.\
+    """
+authors = [
+  "Karin Wu <karin.wu@kevala.com>",
+  "Jose Luis Moscoso <joseluis.moscoso@kevala.com>",
+]
+#readme = "README.md"
+packages = [{include = "hackathon_bqml"}]
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
+[[tool.poetry.source]]
+name = "kevala-pypi"
+url = "https://us-central1-python.pkg.dev/kv-common-vandura/kevala-pypi/simple/"
+priority = "supplemental"
+
+[tool.poetry.dependencies]
+pandas = "<3,>=2.2.1"
+python = "~3.10"
+sqlfluff = "~3.2"
+
+# visualization tools 
+matplotlib = "*"
+ipywidgets = "^8.0.0"
+ipywidgets_bokeh = "^1.6.0"
+panel = "^1.4.4"
+plotly = "^5.16.1"
+
+# gcp packages
+gcsfs = ">=2023.6.0"
+google-cloud-storage = "^2.8.0"
+pandas-gbq = "<0.22.0,>=0.21.0"
+
+# install dbt for gbq 
+dbt-bigquery = "~1.8.0"
+fsspec = "==2024.3.1"
+
+[tool.poetry.group.test.dependencies]
+flake8 = "^6.0.0"
+pytest = "^7.2.1"
+
+[tool.poetry.group.publish.dependencies]
+s3pypi = "==2.0.1"
+twine = "^5.1.1"
+
+[tool.poetry.group.jupyter]
+optional = true
+
+[tool.poetry.group.jupyter.dependencies]
+ipykernel = "*"
+nbformat = "^5.9.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
